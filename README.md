@@ -4,7 +4,7 @@ Text here...
 
 ## Setup
 
-To run the app locally, install the Rails and React dependencies and set up the
+To run the app locally, install the Rails and React dependencies and set up thek
 database:
 
 ```sh
