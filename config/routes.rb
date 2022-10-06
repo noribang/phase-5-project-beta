@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   namespace :api do
+    resources :sms_messages, only: [:create]
+
     # resources :recipes, only: [:index, :create]
     # post "/signup", to: "users#create"
     # get "/me", to: "users#show"
