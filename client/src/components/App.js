@@ -3,7 +3,7 @@ import { Switch, Route } from "react-router-dom";
 import About from './About';
 import Home from './Home';
 import Login from './Login';
-import Messages from './Messages';
+import Messages from './SmsForm';
 import NavBar from './NavBar';
 import Signup from './Signup';
 
@@ -22,7 +22,7 @@ function App() {
           <Signup />
         </Route>
         <Route path="/messages">
-          <Messages />
+          <SmsForm />
         </Route>
         <Route exact path="/">
           <Home />
