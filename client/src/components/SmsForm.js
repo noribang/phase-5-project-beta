@@ -19,7 +19,7 @@ import styled from 'styled-components';
             }
 
             // Make request
-            fetch('http://localhost:3000/api/sms_messages/', {
+            fetch('/api/sms_messages/', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json',
@@ -68,7 +68,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   height: 100vh;
-  background-color: #C8A2C8;
+  background-color: #85a38d;
 `
 
 const Header = styled.h3`
