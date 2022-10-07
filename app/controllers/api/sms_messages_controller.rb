@@ -4,22 +4,18 @@ class Api::SmsMessagesController < ApplicationController
 
     # GET /api/sms_messages
     def index 
-        # birds = Bird.all
-        # render json: birds
-        # All instances
+        # Return all instances
         sms = SmsMessage.all
         render json: sms
     end
 
     # GET /api/sms_messages/:id
     def show
-        # bird = find_bird
-        # render json: bird
-    # rescue ActiveRecord::RecordNotFound    
-    #     render_not_found_response
-
+        # Return sms message instance by params[:id]
         sms = find_sms
         render json: sms
+        # rescue ActiveRecord::RecordNotFound    
+        #     render_not_found_response
     end
 
     # POST /api/sms_messages  api/sms_messages#create
@@ -40,6 +36,33 @@ class Api::SmsMessagesController < ApplicationController
         # render json: client
         render json: sms, status: :created
     end
+
+    # PATCH /api/sms_messages/:id
+    # update any attribute
+    def update
+        # Find the sms message by id from route params
+        # Update sms message using strong params from body of request
+        # Render response
+        sms = find_sms    
+        sms.update(sms_message_params)
+        render json: sms
+        # # rescue ActiveRecord::RecordNotFound    
+        # #     render_not_found_response   
+
+    end
+
+    # DELETE /api/sms_messages/:id
+    def destroy    
+        # Find the sms message by id from route params
+        # If found destroy sms message object from db
+        # Render response
+        sms = find_sms
+        sms.destroy
+        head :no_content
+        # # rescue ActiveRecord::RecordNotFound    
+        # #     render_not_found_response
+    end
+
 
     private
 
