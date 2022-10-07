@@ -2,6 +2,26 @@ require 'twilio-ruby'
 
 class Api::SmsMessagesController < ApplicationController
 
+    # GET /api/sms_messages
+    def index 
+        # birds = Bird.all
+        # render json: birds
+        # All instances
+        sms = SmsMessage.all
+        render json: sms
+    end
+
+    # GET /api/sms_messages/:id
+    def show
+        # bird = find_bird
+        # render json: bird
+    # rescue ActiveRecord::RecordNotFound    
+    #     render_not_found_response
+
+        sms = find_sms
+        render json: sms
+    end
+
     # POST /api/sms_messages  api/sms_messages#create
     def create
         ## Strong params used
@@ -25,6 +45,14 @@ class Api::SmsMessagesController < ApplicationController
 
     def sms_message_params
         params.require(:sms_message).permit(:mobile_number, :message)
+    end
+
+    # Whenever need to find single SmsMessage
+    def find_sms
+        # Returns nil if not found
+        # sms = SmsMessage.find_by(id: params[:id])
+        # Return ActiveRecord exception
+        sms = SmsMessage.find(params[:id])
     end
 
 end
