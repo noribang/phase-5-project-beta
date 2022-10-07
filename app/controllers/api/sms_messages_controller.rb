@@ -4,7 +4,10 @@ class Api::SmsMessagesController < ApplicationController
 
     # POST /api/sms_messages  api/sms_messages#create
     def create
-        # Twilio API
+        ## Strong params used
+        sms = SmsMessage.create(sms_message_params)
+        
+        ## Twilio API
         client = Twilio::REST::Client.new(ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN'])
 
         client.messages.create(
@@ -13,7 +16,9 @@ class Api::SmsMessagesController < ApplicationController
             body: sms_message_params['message']
         )
 
-        render json: client
+        ## render response
+        # render json: client
+        render json: sms, status: :created
     end
 
     private
