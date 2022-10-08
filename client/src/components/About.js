@@ -3,7 +3,7 @@ import React from 'react';
     function About() {
         return (
         <div>
-            <h1>This is the Twilio App About page!</h1>
+            <h1>Send a text message from this app using Twilio!!!</h1>
         </div>
         );
     }
