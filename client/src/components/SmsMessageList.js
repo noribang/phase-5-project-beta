@@ -1,12 +1,19 @@
 import React from 'react';
 import SmsMessage from './SmsMessage';
+import { v4 as uuidv4 } from 'uuid';
 
-function SmsMessageList() {
+function SmsMessageList({ smss }) {
 
     return (
         <>
-            <h1>SmsMessageList</h1>
-            <SmsMessage />
+            <ul className="smsmessagelist">
+                {smss.map((sms) => (
+                    <SmsMessage 
+                        key={uuidv4()}
+                        sms={sms}
+                    />
+                ))}
+            </ul>
         </>
     );
 }

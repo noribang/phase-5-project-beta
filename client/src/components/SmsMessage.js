@@ -1,12 +1,14 @@
 import React from 'react';
 import SmsEditMessage from './SmsEditMessage';
 
-function SmsMessage() {
+function SmsMessage({ sms }) {
+
+    const {id, mobile_number, message} = sms
 
     return (
         <>
-            <h1>SmsMessage</h1>
-            <SmsEditMessage />
+            <li>{`Id:${sms.id} Phone:${sms.mobile_number} Message:${sms.message}`}<button>Delete</button><button>Update</button></li>
+            {/* <SmsEditMessage /> */}
         </>
     );
 }
