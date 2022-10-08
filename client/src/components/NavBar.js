@@ -64,7 +64,7 @@ import { NavLink } from 'react-router-dom';
                 background: "darkblue",
                 }}
             >
-                Messages
+                Send SMS
             </NavLink>
             <NavLink
                 to="/sms"
@@ -74,7 +74,7 @@ import { NavLink } from 'react-router-dom';
                 background: "darkblue",
                 }}
             >
-                Sms
+                SMS History
             </NavLink>
         
             </div>
