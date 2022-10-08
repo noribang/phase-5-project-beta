@@ -66,7 +66,17 @@ import { NavLink } from 'react-router-dom';
             >
                 Messages
             </NavLink>
-
+            <NavLink
+                to="/sms"
+                exact
+                style={linkStyles}
+                activeStyle={{
+                background: "darkblue",
+                }}
+            >
+                Sms
+            </NavLink>
+        
             </div>
         );
     }

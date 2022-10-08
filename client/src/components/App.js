@@ -6,6 +6,7 @@ import Login from './Login';
 import SmsForm from './SmsForm';
 import NavBar from './NavBar';
 import Signup from './Signup';
+import Sms from './Sms';
 
 function App() {
   return (
@@ -23,6 +24,9 @@ function App() {
         </Route>
         <Route path="/messages">
           <SmsForm />
+        </Route>
+        <Route path="/sms">
+          <Sms />
         </Route>
         <Route exact path="/">
           <Home />
