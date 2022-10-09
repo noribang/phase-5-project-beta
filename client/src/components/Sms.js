@@ -21,12 +21,26 @@ function Sms() {
         const deleteFilterSms = smss.filter((sms) => sms.id !== id);
         setSmss(deleteFilterSms)
     }
+
+    // Update sms message handler.
+    function handleUpdateSms(updatedSmsObj) {
+        const updatedSmss = smss.map((sms) => {
+            if (sms.id === updatedSmsObj.id) {
+                return updatedSmsObj;
+            } else {
+                return sms;
+            }
+        });
+        setSmss(updatedSmss)
+    }
+    
     
     return (
         <>
             <SmsMessageList 
                 smss={smss}
                 onSmsDelete={handleDeleteSms}
+                onUpdateSms={handleUpdateSms}
             />
             <SmsNewMessage />
         </>

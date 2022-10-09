@@ -2,7 +2,7 @@ import React from 'react';
 import SmsMessage from './SmsMessage';
 import { v4 as uuidv4 } from 'uuid';
 
-function SmsMessageList({ smss, onSmsDelete }) {
+function SmsMessageList({ smss, onSmsDelete, onUpdateSms }) {
 
     return (
         <>
@@ -12,6 +12,7 @@ function SmsMessageList({ smss, onSmsDelete }) {
                         key={uuidv4()}
                         sms={sms}
                         onSmsDelete={onSmsDelete}
+                        onUpdateSms={onUpdateSms}
                     />
                 ))}
             </ul>
