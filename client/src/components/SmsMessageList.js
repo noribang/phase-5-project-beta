@@ -6,6 +6,7 @@ function SmsMessageList({ smss, onSmsDelete, onUpdateSms }) {
 
     return (
         <>
+            <h1>Twilio Sms Message History</h1>
             <ul className="smsmessagelist">
                 {smss.map((sms) => (
                     <SmsMessage 

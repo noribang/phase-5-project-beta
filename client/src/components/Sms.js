@@ -37,12 +37,13 @@ function Sms() {
     
     return (
         <>
+            <SmsNewMessage />
             <SmsMessageList 
                 smss={smss}
                 onSmsDelete={handleDeleteSms}
                 onUpdateSms={handleUpdateSms}
             />
-            <SmsNewMessage />
+            
         </>
     );
     

@@ -3,10 +3,11 @@ import { Switch, Route } from "react-router-dom";
 import About from './About';
 import Home from './Home';
 import Login from './Login';
-import SmsForm from './SmsForm';
+// import SmsForm from './SmsForm';
 import NavBar from './NavBar';
 import Signup from './Signup';
 import Sms from './Sms';
+import SmsNewMessage from './SmsNewMessage';
 
 function App() {
   return (
@@ -23,7 +24,7 @@ function App() {
           <Signup />
         </Route>
         <Route path="/messages">
-          <SmsForm />
+          <SmsNewMessage />
         </Route>
         <Route path="/sms">
           <Sms />
