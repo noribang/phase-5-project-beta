@@ -13,6 +13,9 @@ Rails.application.routes.draw do
     # get "/me", to: "users#show"
     get "/users/:id", to: "users#show"
 
+    ##Sessions login
+    post "/login", to:"sessions#create"
+
     # resources :recipes, only: [:index, :create]
     # post "/signup", to: "users#create"
     # get "/me", to: "users#show"
