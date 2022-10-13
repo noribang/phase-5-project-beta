@@ -12,11 +12,29 @@ import SmsNewMessage from './SmsNewMessage';
 function App() {
   const[user, setUser] = useState(null);
 
-  // if (!user) return <Login onLogin={(setUser)}/>;
+  // On page load try to login user by sessions hash.
+  // If user found setUser state is set to user found.
+  useEffect(() => {
+    fetch("/api/me")
+    .then((response) => {
+      if (response.ok) {
+        response.json().then((user) => setUser(user));
+      }
+    });
+  }, []);
+
+  if (!user) return <Login onLogin={(setUser)}/>;
+
+  // if (user) {
+  //   return <><NavBar /><h2>Welcome, {user.username}!</h2></>
+  // } else {
+  //   return <Login onLogin={setUser}/>
+  // }
 
   return (
     <>
       <NavBar />
+      <h2>Welcome, {user.username}!</h2>
       <Switch>
         <Route path="/about">
           <About />

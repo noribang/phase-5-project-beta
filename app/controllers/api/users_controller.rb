@@ -15,11 +15,21 @@ class Api::UsersController < ApplicationController
     end
 
     def show 
+        # # Read single user.
+        # user = User.find(params[:id])
+        # render json: user
+        
+        # get "/me", to: "users#show"
+        # Find using sessions hash.
+        user = User.find_by(id: session[:user_id])
+        if user
+            render json: user
+        else
+            render json: { error: "Not authorized."}, status: :unauthorized
+        end
+        
         ## @current_user use with sessions cookie
         # render json: @current_user
-
-        user = User.find(params[:id])
-        render json: user
     end
 
     private 
