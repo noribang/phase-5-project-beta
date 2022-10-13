@@ -2,6 +2,16 @@ Rails.application.routes.draw do
   namespace :api do
     # POST /api/sms_messages  api/sms_messages#create
     resources :sms_messages, only: [:index, :show, :create, :update, :destroy]
+    # resources :users
+
+    # Read all users.
+    get "/users", to: "users#index"
+    # Create user.
+    post "/signup", to: "users#create"
+    # Read single user.
+    ##Use with sessions cookie
+    # get "/me", to: "users#show"
+    get "/users/:id", to: "users#show"
 
     # resources :recipes, only: [:index, :create]
     # post "/signup", to: "users#create"
