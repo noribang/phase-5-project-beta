@@ -1,19 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
+// import NavBar from "./NavBar";
 
-    function Login() {
+    function Login({ onLogin }) {
+        // State
+        const [username, setUsername] = useState("")
+
+        // Event Handler for onSubmit event
+        function handleSubmit(e) {
+            e.preventDefault();
+            fetch("/api/login", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ username }),
+            })
+            .then((r) => r.json())
+            .then((user) => onLogin(user));
+
+        } 
+
+        // View
         return (
-        <div>
+        <>
+            {/* <NavBar /> */}
             <h1>Login</h1>
-            <form>
-            <div>
-                <input type="text" name="username" placeholder="Username"/>
-            </div>
-            <div>
-                <input type="password" name="password" placeholder="Password"/>
-            </div>
-            <input type="submit" value="Submit"/>
+            <form onSubmit={handleSubmit}>
+                <input 
+                    type="text"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                />
+                <button type="submit">Login</button>
             </form>
-        </div>
+        </>
         );
     }
   

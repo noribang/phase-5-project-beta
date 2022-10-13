@@ -10,6 +10,10 @@ import Sms from './Sms';
 import SmsNewMessage from './SmsNewMessage';
 
 function App() {
+  const[user, setUser] = useState(null);
+
+  // if (!user) return <Login onLogin={(setUser)}/>;
+
   return (
     <>
       <NavBar />
@@ -18,7 +22,7 @@ function App() {
           <About />
         </Route>
         <Route path="/login">
-          <Login />
+          <Login onLogin={(setUser)}/>
         </Route>
         <Route path="/signup">
           <Signup />
