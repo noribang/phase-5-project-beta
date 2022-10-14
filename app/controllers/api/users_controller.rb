@@ -1,4 +1,9 @@
 class Api::UsersController < ApplicationController
+    # Authorize filter runs before any controller methods.
+    before_action :authorize
+    # Authorize filter runs before any controller methods,
+    # except, create method.
+    skip_before_action :authorize, only: :create
 
     # GET /api/users
     def index
@@ -27,7 +32,7 @@ class Api::UsersController < ApplicationController
         else
             render json: { error: "Not authorized."}, status: :unauthorized
         end
-        
+
         ## @current_user use with sessions cookie
         # render json: @current_user
     end
@@ -38,4 +43,9 @@ class Api::UsersController < ApplicationController
         # has_secure_password has instance methods :password and :password_confirmation 
         params.permit(:username, :password, :password_confirmation)
     end
+
+    def authorize
+      return render json: { error: "Not authorized"}, status: :unauthorized unless session.include? :user_id
+    end
+
 end
