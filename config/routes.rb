@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
     # Read all users.
     get "/users", to: "users#index"
-    # Create user.
+    # Create user. Signup user.
     post "/signup", to: "users#create"
     # # Read single user.
     # get "/users/:id", to: "users#show"

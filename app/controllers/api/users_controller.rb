@@ -15,8 +15,15 @@ class Api::UsersController < ApplicationController
     # Bundle install gem 'bcrypt'
     # has_secure_password in User model
     def create
-        user = User.create!(user_params)
-        render json: user, status: :created
+        # user = User.create!(user_params)
+        # render json: user, status: :created
+
+        user = User.create(user_params)
+        if user.valid?
+            render json: user, status: :created
+        else
+            render json: { errors: user.erros.full_messages}, status: :unprocessable_entity
+        end
     end
 
     def show 
