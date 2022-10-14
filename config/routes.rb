@@ -12,7 +12,10 @@ Rails.application.routes.draw do
     # get "/users/:id", to: "users#show"
 
     ## Sessions login
-    post "/login", to:"sessions#create"
+    post "/login", to: "sessions#create"
+    ## Sessions logout
+    delete "/logout", to: "sessions#destroy" 
+
     ## Sessions stay logged in. 
     # Route to retrieve user's data from db using sessions hash.
     get "/me", to: "users#show"

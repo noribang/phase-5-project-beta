@@ -7,4 +7,12 @@ class Api::SessionsController < ApplicationController
         session[:user_id] = user.id
         render json: user
     end
+
+    # delete "/logout", to: "sessions#destroy"
+    # Logout
+    def destroy
+        session.delete :user_id
+        head :no_content
+    end
+
 end
