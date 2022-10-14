@@ -4,6 +4,7 @@ import React, { useState } from 'react';
     function Login({ onLogin }) {
         // State
         const [username, setUsername] = useState("")
+        const [password, setPassword] = useState("")
 
         // Event Handler for onSubmit event
         function handleSubmit(e) {
@@ -13,24 +14,42 @@ import React, { useState } from 'react';
                 headers: {
                     "Content-Type": "application/json",
                 },
-                body: JSON.stringify({ username }),
+                body: JSON.stringify({ username, password }),
             })
-            .then((r) => r.json())
-            .then((user) => onLogin(user));
-
+            .then((r) => {
+                if (r.ok) {
+                    r.json().then((user) => onLogin(user));
+                }
+            })
+            
         } 
 
         // View
         return (
         <>
             {/* <NavBar /> */}
-            <h1>Login</h1>
             <form onSubmit={handleSubmit}>
-                <input 
-                    type="text"
-                    value={username}
-                    onChange={(e) => setUsername(e.target.value)}
-                />
+                <h1>Login</h1>
+                <div>
+                    <label htmlFor="username">Username</label>
+                    <input 
+                        type="text"
+                        id="username"
+                        autoComplete="off"
+                        value={username}
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
+                </div>
+                <div>
+                    <label htmlFor="password">Password</label>
+                    <input 
+                        type="password"
+                        id="password"
+                        autoComplete="current-password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                </div>
                 <button type="submit">Login</button>
             </form>
         </>

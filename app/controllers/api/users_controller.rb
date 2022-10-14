@@ -18,6 +18,7 @@ class Api::UsersController < ApplicationController
         # user = User.create!(user_params)
         # render json: user, status: :created
 
+        ## Password protection.
         user = User.create(user_params)
         if user.valid?
             render json: user, status: :created
