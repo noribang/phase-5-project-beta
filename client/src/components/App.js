@@ -43,7 +43,7 @@ function App() {
           <Login onLogin={(setUser)}/>
         </Route>
         <Route path="/signup">
-          <Signup />
+          <Signup onLogin={(setUser)} />
         </Route>
         <Route path="/messages">
           <SmsNewMessage />
