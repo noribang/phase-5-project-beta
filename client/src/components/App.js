@@ -33,7 +33,7 @@ function App() {
 
   return (
     <>
-      <NavBar />
+      <NavBar setUser={(setUser)}/>
       <h2>Welcome, {user.username}!</h2>
       <Switch>
         <Route path="/about">
