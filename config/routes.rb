@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   namespace :api do
+
+    resources :user_sms_messages
+
     # GET    /api/sms_messages(.:format)     api/sms_messages#index
     # POST   /api/sms_messages(.:format)     api/sms_messages#create
     # GET    /api/sms_messages/:id(.:format) api/sms_messages#show
