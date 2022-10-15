@@ -8,8 +8,10 @@ Rails.application.routes.draw do
     get "/users", to: "users#index"
     # Create user. Signup user.
     post "/signup", to: "users#create"
-    # # Read single user.
+    ## Read single user.
     # get "/users/:id", to: "users#show"
+    ## Destroy single user
+    delete "/users/:id", to: "users#destroy"
 
     ## Sessions login
     post "/login", to: "sessions#create"
