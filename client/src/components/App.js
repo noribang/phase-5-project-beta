@@ -23,7 +23,14 @@ function App() {
     });
   }, []);
 
-  if (!user) return <Login onLogin={(setUser)}/>;
+  if (!user) {
+    return (
+    <>
+      <NavBar setUser={(setUser)}/>
+      <Login onLogin={(setUser)}/>
+    </>
+    );
+  } 
 
   // if (user) {
   //   return <><NavBar /><h2>Welcome, {user.username}!</h2></>
