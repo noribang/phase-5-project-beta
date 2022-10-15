@@ -3,4 +3,7 @@ class User < ApplicationRecord
     # use macro has_secure_password
     has_secure_password
 
+    has_many :user_sms_messages
+    has_many :sms_messages, through: :user_sms_messages
+
 end
