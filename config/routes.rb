@@ -1,7 +1,22 @@
 Rails.application.routes.draw do
   namespace :api do
-    # POST /api/sms_messages  api/sms_messages#create
-    resources :sms_messages, only: [:index, :show, :create, :update, :destroy]
+    # GET    /api/sms_messages(.:format)     api/sms_messages#index
+    # POST   /api/sms_messages(.:format)     api/sms_messages#create
+    # GET    /api/sms_messages/:id(.:format) api/sms_messages#show
+    # PATCH  /api/sms_messages/:id(.:format) api/sms_messages#update
+    # PUT    /api/sms_messages/:id(.:format) api/sms_messages#update
+    # DELETE /api/sms_messages/:id(.:format) api/sms_messages#destroy
+
+    # resources :sms_messages, only: [:index, :show, :create, :update, :destroy]
+    resources :sms_messages
+        
+    # GET    /api/users(.:format)            api/users#index
+    # POST   /api/signup(.:format)           api/users#create
+    # DELETE /api/users/:id(.:format)        api/users#destroy
+    # POST   /api/login(.:format)            api/sessions#create
+    # DELETE /api/logout(.:format)           api/sessions#destroy
+    # GET    /api/me(.:format)               api/users#show
+    
     # resources :users
 
     # Read all users.

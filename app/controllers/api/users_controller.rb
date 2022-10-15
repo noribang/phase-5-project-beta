@@ -43,7 +43,7 @@ class Api::UsersController < ApplicationController
 
         ## @current_user use with sessions cookie
         # render json: @current_user
-    end
+    end 
 
     def destroy
         # Find the user by id from route params
