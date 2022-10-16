@@ -5,5 +5,6 @@ class User < ApplicationRecord
 
     has_many :user_sms_messages, dependent: :destroy
     has_many :sms_messages, through: :user_sms_messages, dependent: :destroy
-
+    
+    has_one :profile
 end
