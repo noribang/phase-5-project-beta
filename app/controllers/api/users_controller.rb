@@ -2,7 +2,7 @@ class Api::UsersController < ApplicationController
     # Authorize filter runs before any controller methods.
     # before_action :authorize
     # Authorize filter runs before any controller methods,
-    # except, create method.
+    # except, create method.    
     # skip_before_action :authorize, only: :create
 
     # GET /api/users

@@ -10,7 +10,7 @@ import Sms from './Sms';
 import SmsNewMessage from './SmsNewMessage';
 
 function App() {
-  const[user, setUser] = useState(null);
+  const[user, setUser] = useState({username: "World! Please Login or Signup to create an account"});
 
   // On page load try to login user by sessions hash.
   // If user found setUser state is set to user found.
@@ -23,14 +23,14 @@ function App() {
     });
   }, []);
 
-  if (!user) {
-    return (
-    <>
-      <NavBar setUser={(setUser)}/>
-      <Login onLogin={(setUser)}/>
-    </>
-    );
-  } 
+  // if (!user) {
+  //   return (
+  //   <>
+  //     <Login onLogin={(setUser)}/>
+  //     {/* <Signup onLogin={(setUser)} /> */}
+  //   </>
+  //   );
+  // } 
 
   // if (user) {
   //   return <><NavBar /><h2>Welcome, {user.username}!</h2></>
@@ -43,6 +43,9 @@ function App() {
       <NavBar setUser={(setUser)}/>
       <h2>Welcome, {user.username}!</h2>
       <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
         <Route path="/about"> 
           <About />
         </Route>
@@ -57,9 +60,6 @@ function App() {
         </Route>
         <Route path="/sms">
           <Sms />
-        </Route>
-        <Route exact path="/">
-          <Home />
         </Route>
       </Switch>
     </>

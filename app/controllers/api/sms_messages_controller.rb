@@ -5,8 +5,9 @@ class Api::SmsMessagesController < ApplicationController
     # GET /api/sms_messages
     def index 
         # Return all instances
-        sms = SmsMessage.all
-        render json: sms
+        # smss = SmsMessage.all
+        smss = @current_user.sms_messages.all
+        render json: smss, include: :users
     end
 
     # GET /api/sms_messages/:id
@@ -21,7 +22,9 @@ class Api::SmsMessagesController < ApplicationController
     # POST /api/sms_messages  api/sms_messages#create
     def create
         ## Strong params used
-        sms = SmsMessage.create(sms_message_params)
+        # sms = SmsMessage.create(sms_message_params)
+        # debugger;
+        sms = @current_user.sms_messages.create(sms_message_params)
         
         ## Twilio API
         client = Twilio::REST::Client.new(ENV['ACCOUNT_SID'], ENV['AUTH_TOKEN'])
@@ -76,6 +79,7 @@ class Api::SmsMessagesController < ApplicationController
         # sms = SmsMessage.find_by(id: params[:id])
         # Return ActiveRecord exception
         sms = SmsMessage.find(params[:id])
+        # sms = @current_user.sms_messages.find(params[:id])
     end
 
 end

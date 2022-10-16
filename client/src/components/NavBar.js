@@ -21,7 +21,7 @@ import { NavLink } from 'react-router-dom';
             fetch("/api/logout", {method: "DELETE"})
             .then((r) => {
                 if (r.ok) {
-                    setUser(null);
+                    setUser({username: "World! Please Login or Signup to create an account"});
                 }
             });
     

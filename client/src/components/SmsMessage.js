@@ -2,10 +2,14 @@ import React, { useState } from 'react';
 import SmsEditMessage from './SmsEditMessage';
 
 function SmsMessage({ sms, onSmsDelete, onUpdateSms }) {
+    // Sms object
+    const {id, mobile_number, message, users} = sms
+    
     // const [isEditing, setIsEditing] = useState(false);
     const [isSmsEditing, setIsSmsEditing] = useState(false);
+    const [isSmsUsername, setIsSmsUsername] = useState(sms.users);
 
-    const {id, mobile_number, message} = sms
+    // const arrSmsUsername = isSmsUsername[0].username
 
     // Handles click event that deletes sms by id.
     function handleDeleteSmsClick() {
@@ -34,7 +38,7 @@ function SmsMessage({ sms, onSmsDelete, onUpdateSms }) {
                         message={message}
                         onUpdateSmsMessage={handleUpdateSmsMessage}
                     />) : (<div>
-                            {`Id:${sms.id} Phone:${sms.mobile_number} Message:${sms.message}`}
+                            {`Sms_Id:${sms.id} Phone:${sms.mobile_number} Message:${sms.message}`}
                             <button onClick={handleDeleteSmsClick}>Delete</button>
                             <button onClick={() => setIsSmsEditing((isSmsEditing) => !isSmsEditing)}>Update</button>
                            </div>
