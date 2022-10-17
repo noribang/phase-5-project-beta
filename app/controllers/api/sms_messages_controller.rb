@@ -36,7 +36,6 @@ class Api::SmsMessagesController < ApplicationController
         )
 
         ## render response
-        # render json: client
         render json: sms, status: :created
     end
 

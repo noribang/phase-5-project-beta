@@ -1,7 +1,17 @@
 Rails.application.routes.draw do
   namespace :api do
 
-    resources :profiles
+    # GET    /api/profiles(.:format)         api/profiles#index
+    # POST   /api/profiles(.:format)         api/profiles#create
+    # GET    /api/profiles/:id(.:format)     api/profiles#show
+    # PATCH  /api/profiles/:id(.:format)     api/profiles#update
+    # PUT    /api/profiles/:id(.:format)     api/profiles#update
+    # DELETE /api/profiles/:id(.:format)     api/profiles#destroy
+    resources :profiles, only: [:index, :create, :update, :destroy]
+
+    get "/profiles_one", to: "profiles#show_one"
+
+    
 
     # resources :user_sms_messages
 
@@ -15,6 +25,7 @@ Rails.application.routes.draw do
     # resources :sms_messages, only: [:index, :show, :create, :update, :destroy]
     resources :sms_messages
         
+
     # GET    /api/users(.:format)            api/users#index
     # POST   /api/signup(.:format)           api/users#create
     # DELETE /api/users/:id(.:format)        api/users#destroy
@@ -23,6 +34,8 @@ Rails.application.routes.draw do
     # GET    /api/me(.:format)               api/users#show
     
     # resources :users
+
+    
 
     # Read all users.
     get "/users", to: "users#index"

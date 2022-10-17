@@ -11,17 +11,33 @@ class Api::ProfilesController < ApplicationController
     def index 
         # Return all instances
         # profile = Profile.all
-        profile = @current_user.profile.all
-        render json: profile
-        # render json: profile, include: :users
+        # profile = @current_user.profile.all
+        profile = @current_user.profiles.all
+        # profile = @current_user.includes(:profiles).all
+        # render json: profile
+        render json: profile, include: :users
     end
 
     # POST   /api/profiles
     def create
         ## Strong params used
         ## render response
-        profile = @current_user.profile.create(user_params)
+        profile = @current_user.profiles.create(profile_params)
+        # profile = @current_user.create_profile(profile_params)
+        # profile = Profile.create(profile_params)
         render json: profile, status: :created
+    end
+
+    # GET  /api/profiles_one/
+    def show_one
+        # Return sms message instance by params[:id]
+        # sms = find_sms
+        # render json: sms
+
+        profile = @current_user.profile.find(2)
+        render json: profile
+        # rescue ActiveRecord::RecordNotFound    
+        #     render_not_found_response
     end
 
     # DELETE /api/profiles/:id
@@ -47,8 +63,8 @@ class Api::ProfilesController < ApplicationController
         # Returns nil if not found
         # profile = Profile.find_by(id: params[:id])
         # Return ActiveRecord exception
-        profile = Profile.find(params[:id])
-        # profile = @current_user.profile.find(params[:id])
+        # profile = Profile.find(params[:id])
+        profile = @current_user.profile.find(params[:id])
     end
 
 

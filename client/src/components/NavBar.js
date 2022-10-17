@@ -103,6 +103,16 @@ import { NavLink } from 'react-router-dom';
                 >
                     SMS History
                 </NavLink>
+                <NavLink
+                    to="/profilenew"
+                    exact
+                    style={linkStyles}
+                    activeStyle={{
+                    background: "darkblue",
+                    }}
+                >
+                    New Profile
+                </NavLink>
         
             </div>
         );

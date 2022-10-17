@@ -8,6 +8,7 @@ import NavBar from './NavBar';
 import Signup from './Signup';
 import Sms from './Sms';
 import SmsNewMessage from './SmsNewMessage';
+import ProfileNew from './ProfileNew';
 
 function App() {
   const[user, setUser] = useState({username: "World! Please Login or Signup to create an account"});
@@ -60,6 +61,9 @@ function App() {
         </Route>
         <Route path="/sms">
           <Sms />
+        </Route>
+        <Route path="/profilenew">
+          <ProfileNew />
         </Route>
       </Switch>
     </>
