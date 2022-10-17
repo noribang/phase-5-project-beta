@@ -1,4 +1,8 @@
 class Api::UsersController < ApplicationController
+    ###############################################################
+    # Error handling and filters moved to Application_controller. #
+    # All controllers will inherit from Application_controller.   #
+    ###############################################################
     # Authorize filter runs before any controller methods.
     # before_action :authorize
     # Authorize filter runs before any controller methods,
@@ -23,7 +27,7 @@ class Api::UsersController < ApplicationController
         if user.valid?
             render json: user, status: :created
         else
-            render json: { errors: user.erros.full_messages}, status: :unprocessable_entity
+            render json: { errors: user.errors.full_messages}, status: :unprocessable_entity
         end
     end
 

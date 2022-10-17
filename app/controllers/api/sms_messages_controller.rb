@@ -1,6 +1,10 @@
 require 'twilio-ruby'
 
 class Api::SmsMessagesController < ApplicationController
+    ###############################################################
+    # Error handling and filters moved to Application_controller. #
+    # All controllers will inherit from Application_controller.   #
+    ###############################################################
 
     # GET /api/sms_messages
     def index 

@@ -1,4 +1,9 @@
 class Api::ProfilesController < ApplicationController
+    ###############################################################
+    # Error handling and filters moved to Application_controller. #
+    # All controllers will inherit from Application_controller.   #
+    ###############################################################
+
     # GET    /api/profiles(.:format)         api/profiles#index
     # POST   /api/profiles(.:format)         api/profiles#create
     # GET    /api/profiles/:id(.:format)     api/profiles#show
