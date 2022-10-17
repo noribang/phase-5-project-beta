@@ -3,11 +3,13 @@ import SmsEditMessage from './SmsEditMessage';
 
 function SmsMessage({ sms, onSmsDelete, onUpdateSms }) {
     // Sms object
-    const {id, mobile_number, message, users} = sms
+    // const {id, mobile_number, message, users} = sms
+    const {id, mobile_number, message} = sms
     
     // const [isEditing, setIsEditing] = useState(false);
     const [isSmsEditing, setIsSmsEditing] = useState(false);
-    const [isSmsUsername, setIsSmsUsername] = useState(sms.users);
+    // /* NOT BEING USED. NOT SURE IF IT WORKS HERE.*/
+    // const [isSmsUsername, setIsSmsUsername] = useState(sms.users);
 
     // const arrSmsUsername = isSmsUsername[0].username
 

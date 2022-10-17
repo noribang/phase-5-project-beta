@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import SmsMessageList from './SmsMessageList';
-import SmsNewMessage from './SmsNewMessage';
+// import SmsNewMessage from './SmsNewMessage';
 
 function Sms() {
     const [smss, setSmss] = useState([]);

@@ -1,36 +1,57 @@
 import React, { useState } from 'react';
-import SmsEditMessage from './SmsEditMessage';
+// import SmsEditMessage from './SmsEditMessage';
+import ProfileEdit from './ProfileEdit';
 
-function SmsMessage({ sms, onSmsDelete, onUpdateSms }) {
-    // Sms object
-    const {id, mobile_number, message, users} = sms
+// function SmsMessage({ sms, onSmsDelete, onUpdateSms }) {
+function Profile({ profile, onProfileDelete, onUpdateProfile }) {
+    // // Sms object
+    // const {id, mobile_number, message, users} = sms
+    // Profile object destructure.
+    const {id, firstname, lastname, email, bio, user_id} = profile
     
-    // const [isEditing, setIsEditing] = useState(false);
-    const [isSmsEditing, setIsSmsEditing] = useState(false);
-    const [isSmsUsername, setIsSmsUsername] = useState(sms.users);
+    // const [isSmsEditing, setIsSmsEditing] = useState(false);
+    // const [isSmsUsername, setIsSmsUsername] = useState(sms.users);
+    const [isProfileEditing, setIsProfileEditing] = useState(false);
+    
 
-    // const arrSmsUsername = isSmsUsername[0].username
+    // // Handles click event that deletes sms by id.
+    // function handleDeleteSmsClick() {
+    //     // Delete from db.
+    //     fetch(`/api/sms_messages/${id}`, {
+    //         method: "DELETE"
+    //     });
+    //     // Updates state
+    //     onSmsDelete(id)
+    // }
 
     // Handles click event that deletes sms by id.
-    function handleDeleteSmsClick() {
+    function handleDeleteProfileClick() {
         // Delete from db.
-        fetch(`/api/sms_messages/${id}`, {
+        fetch(`/api/profiles/${id}`, {
             method: "DELETE"
         });
         // Updates state
-        onSmsDelete(id)
+        onProfileDelete(id)
     }
 
+    // // Handles the PATCH request JSON.
+    // function handleUpdateSmsMessage(updatedSms) {
+    //     setIsSmsEditing(false);
+    //     // This is the handler that is passed in as prop. 
+    //     onUpdateSms(updatedSms)
+    // }
+
     // Handles the PATCH request JSON.
-    function handleUpdateSmsMessage(updatedSms) {
-        setIsSmsEditing(false);
+    function handleUpdateProfileMessage(updatedProfile) {
+        setIsProfileEditing(false);
         // This is the handler that is passed in as prop. 
-        onUpdateSms(updatedSms)
+        onUpdateProfile(updatedProfile)
     }
+    
 
     return (
         <>
-            <li>
+            {/* <li>
                 {isSmsEditing ? (
                     <SmsEditMessage 
                         id={id} 
@@ -45,9 +66,36 @@ function SmsMessage({ sms, onSmsDelete, onUpdateSms }) {
                     )}
 
 
+            </li> */}
+
+            <li>
+                {isProfileEditing ? (
+                    <ProfileEdit 
+                        id={id} 
+                        // mobile_number={mobile_number}
+                        // message={message}
+                        firstname={firstname}
+                        lastname={lastname}
+                        email={email}
+                        bio={bio}
+                        user_id={user_id}
+                        // onUpdateSmsMessage={handleUpdateSmsMessage}
+                        onUpdateProfileMessage={handleUpdateProfileMessage}
+                    />) : (<div>
+                            {/* {`Sms_Id:${sms.id} Phone:${sms.mobile_number} Message:${sms.message}`}
+                            <button onClick={handleDeleteSmsClick}>Delete</button>
+                            <button onClick={() => setIsSmsEditing((isSmsEditing) => !isSmsEditing)}>Update</button> */}
+                            {`Profile_Id:${profile.id} Firstname:${profile.firstname} Lastname:${profile.lastname} Email:${profile.email} Bio:${profile.bio} User_id:${profile.user_id}`}
+                            <button onClick={handleDeleteProfileClick}>Delete</button>
+                            <button onClick={() => setIsProfileEditing((isProfileEditing) => !isProfileEditing)}>Update</button>
+                           </div>
+                    )}
+
+
             </li>
         </>
     );
 }
 
-export default SmsMessage;
+// export default SmsMessage;
+export default Profile;

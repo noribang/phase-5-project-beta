@@ -15,7 +15,7 @@ class Api::ProfilesController < ApplicationController
         profile = @current_user.profiles.all
         # profile = @current_user.includes(:profiles).all
         # render json: profile
-        render json: profile, include: :users
+        render json: profile, include: :user
     end
 
     # POST   /api/profiles

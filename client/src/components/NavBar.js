@@ -113,6 +113,16 @@ import { NavLink } from 'react-router-dom';
                 >
                     New Profile
                 </NavLink>
+                <NavLink
+                    to="/profileform"
+                    exact
+                    style={linkStyles}
+                    activeStyle={{
+                    background: "darkblue",
+                    }}
+                >
+                    User Profile
+                </NavLink>
         
             </div>
         );
