@@ -10,7 +10,6 @@ function ProfileNew() {
     const [email, setEmail] = useState('');
     const [bio, setBio] = useState(''); 
 
-
     // Function expression.
     // onSubmit().
     // Sends sms when form submit is clicked.

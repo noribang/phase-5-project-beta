@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     # DELETE /api/profiles/:id(.:format)     api/profiles#destroy
     resources :profiles, only: [:index, :create, :update, :destroy]
 
-    get "/profiles_one", to: "profiles#show_one"
+    # get "/profiles_one", to: "profiles#show_one"
 
     
 
