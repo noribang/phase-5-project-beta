@@ -5,6 +5,6 @@ class SmsMessage < ApplicationRecord
 
     # Validation
     validates :mobile_number, length: { is: 10 }
-    validates :message, length, length: { maximum: 100 }
+    validates :message, length: { maximum: 100 }
 
 end
