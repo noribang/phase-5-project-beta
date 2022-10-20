@@ -2,6 +2,8 @@ class Api::SessionsController < ApplicationController
 
     # post "/login", to:"sessions#create"
     # Store user.id in session
+    skip_before_action :authorize
+
     def create
         ## Before password protection
         # user = User.find_by(username: params[:username])
