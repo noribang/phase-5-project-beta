@@ -4,9 +4,11 @@ function SmsEditMessage({ id, mobile_number, message, onUpdateSmsMessage }) {
     const [isMobile, setIsMobile] = useState(mobile_number);
     const [isMessage, setIsMessage] = useState(message);
 
+    // onSubmit handler.
     function handleSmsFormSubmit(e) {
         e.preventDefault();
 
+        // Update sent sms message and mobile number. 
         fetch(`/api/sms_messages/${id}`, {
             method: "PATCH",
             headers: {
@@ -19,6 +21,23 @@ function SmsEditMessage({ id, mobile_number, message, onUpdateSmsMessage }) {
         })
         .then((r) => r.json())
         .then((updatedSmsJSON) => onUpdateSmsMessage(updatedSmsJSON))
+
+
+        // Resend sms message.
+        fetch('/api/sms_messages/', {
+            method: 'POST',
+            headers: {
+                'content-type': 'application/json',
+                accepts: 'application/json'
+            },
+            body: JSON.stringify({
+                mobile_number: isMobile,
+                message: isMessage,
+            })
+        })
+        .then((resp) => resp.json())
+        .then((data) => console.log(data))
+        
     }
 
     return (

@@ -42,7 +42,7 @@ function SmsMessage({ sms, onSmsDelete, onUpdateSms }) {
                     />) : (<div>
                             {`Sms_Id:${sms.id} Phone:${sms.mobile_number} Message:${sms.message}`}
                             <button onClick={handleDeleteSmsClick}>Delete</button>
-                            <button onClick={() => setIsSmsEditing((isSmsEditing) => !isSmsEditing)}>Update</button>
+                            <button onClick={() => setIsSmsEditing((isSmsEditing) => !isSmsEditing)}>Update / Resend SMS Message</button>
                            </div>
                     )}
 
