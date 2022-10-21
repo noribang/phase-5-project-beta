@@ -29,7 +29,7 @@ import { NavLink } from 'react-router-dom';
                 <header>
                     <button onClick={handleLogout}>Logout</button>
                 </header>
-                {user.id ? <NavLink
+                {/* {user.id ? <NavLink
                     to="/"
                     exact
                     style={linkStyles}
@@ -39,7 +39,7 @@ import { NavLink } from 'react-router-dom';
                     onClick={handleLogout}
                 >
                     Logout
-                </NavLink> : null}
+                </NavLink> : null} */}
                 <NavLink
                     to="/"
                     exact

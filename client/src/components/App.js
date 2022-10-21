@@ -45,9 +45,6 @@ function App() {
       <NavBar setUser={(setUser)} user={user}/>
       <h2>Welcome, {user.username}!</h2>
       <Switch>
-        <Route exact path="/">
-          <Home />
-        </Route>
         <Route path="/about"> 
           <About />
         </Route>
@@ -68,6 +65,9 @@ function App() {
         </Route>
         <Route path="/profileform">
           <ProfileForm />
+        </Route>
+        <Route exact path="/">
+          <Home />
         </Route>
       </Switch>
     </>
