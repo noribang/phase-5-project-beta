@@ -38,6 +38,7 @@ import React, { useState } from 'react';
                         autoComplete="off"
                         value={username}
                         onChange={(e) => setUsername(e.target.value)}
+                        required
                     />
                 </div>
                 <div>
@@ -48,6 +49,7 @@ import React, { useState } from 'react';
                         autoComplete="current-password"
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
+                        required
                     />
                 </div>
                 <button type="submit">Login</button>
