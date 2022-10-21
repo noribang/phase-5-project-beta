@@ -21,7 +21,6 @@ function SmsEditMessage({ id, mobile_number, message, onUpdateSmsMessage }) {
         .then((updatedSmsJSON) => onUpdateSmsMessage(updatedSmsJSON))
     }
 
-
     return (
         <>
             <p>Update Mobile Number / SMS Message</p>
