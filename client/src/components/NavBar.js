@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import AppSetUserContext from "../AppSetUserContext";
 
     /* Nav styling */
     const linkStyles = {
@@ -12,8 +13,11 @@ import { NavLink } from 'react-router-dom';
         color: "white",
     };
     /* Navbar */
-    function NavBar({ setUser, user }) {
-        
+    // function NavBar({ setUser, user }) {
+    function NavBar() {
+        // useContext
+        const { setUser, user } = useContext(AppSetUserContext);
+
         function handleLogout() {
             fetch("/api/logout", {method: "DELETE"})
             .then((r) => {

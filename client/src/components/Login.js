@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 // import NavBar from "./NavBar";
+import AppSetUserContext from "../AppSetUserContext";
 
-    function Login({ onLogin }) {
+    // function Login({ onLogin }) {
+    function Login() {
         // State
         const [username, setUsername] = useState("")
         const [password, setPassword] = useState("")
+        // useContext
+        const { setUser } = useContext(AppSetUserContext);
 
         // Event Handler for onSubmit event
         function handleSubmit(e) {
@@ -18,7 +22,8 @@ import React, { useState } from 'react';
             })
             .then((r) => {
                 if (r.ok) {
-                    r.json().then((user) => onLogin(user));
+                    // r.json().then((user) => onLogin(user));
+                    r.json().then((user) => setUser(user));
                 }
             })
             

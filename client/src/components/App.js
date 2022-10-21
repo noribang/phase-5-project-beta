@@ -10,10 +10,10 @@ import Sms from './Sms';
 import SmsNewMessage from './SmsNewMessage';
 import ProfileNew from './ProfileNew';
 import ProfileForm from './ProfileForm';
+import AppSetUserContext from "../AppSetUserContext";
 
 function App() {
   const[user, setUser] = useState({id: null, username: "World! Please Login or Signup to create an account"});
-
   // On page load try to login user by sessions hash.
   // If user found setUser state is set to user found.
   useEffect(() => {
@@ -25,34 +25,23 @@ function App() {
     });
   }, []);
 
-  // if (!user) {
-  //   return (
-  //   <>
-  //     <Login onLogin={(setUser)}/>
-  //     {/* <Signup onLogin={(setUser)} /> */}
-  //   </>
-  //   );
-  // } 
-
-  // if (user) {
-  //   return <><NavBar /><h2>Welcome, {user.username}!</h2></>
-  // } else {
-  //   return <Login onLogin={setUser}/>
-  // }
-
-  return (
+    return (
     <>
-      <NavBar setUser={(setUser)} user={user}/>
+      <AppSetUserContext.Provider value={{ setUser, user }}>
+      {/* <NavBar setUser={(setUser)} user={user}/> */}
+      <NavBar user={user}/>
       <h2>Welcome, {user.username}!</h2>
       <Switch>
         <Route path="/login">
-          <Login onLogin={(setUser)}/>
+          {/* <Login onLogin={(setUser)}/> */}
+          <Login />
         </Route>
         <Route path="/about"> 
           <About />
         </Route>
         <Route path="/signup">
-          <Signup onLogin={(setUser)} />
+          {/* <Signup onLogin={(setUser)} /> */}
+          <Signup />
         </Route>
         <Route path="/messages">
           <SmsNewMessage />
@@ -70,6 +59,7 @@ function App() {
           <Home />
         </Route>
       </Switch>
+      </AppSetUserContext.Provider>
     </>
   );
 }

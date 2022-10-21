@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import ProfileList from './ProfileList';
-// import ExampleContext from '../ExampleContext';
 import ProfileContext from '../ProfileContext';
 
 

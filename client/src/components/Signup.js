@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import AppSetUserContext from "../AppSetUserContext";
 
-    // onLogin is setUser state from App.js
-    function Signup({ onLogin }) {
+    function Signup() {    
         // State
         const [username, setUsername] = useState("");
         const [password, setPassword] = useState("");
         const [passwordConfirmation, setPasswordConfirmation] = useState("");
         const [errors, setErrors] = useState([]);
+        // useContext
+        const { setUser } = useContext(AppSetUserContext);
         // Handles onSubmit event.
         function handleSubmit(e) {
             e.preventDefault();
@@ -27,7 +29,8 @@ import React, { useState } from 'react';
                 if(data.errors) {
                     setErrors([...data.errors])
                 } else {
-                    onLogin(data)
+                    // onLogin(data)
+                    setUser(data)
                 }
                 setUsername("")
                 setPassword("")
