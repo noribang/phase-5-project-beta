@@ -4,7 +4,7 @@ class SmsMessage < ApplicationRecord
     has_many :users, through: :user_sms_messages, dependent: :destroy
 
     # Validation
-    validates :mobile_number, length: { is: 10 }
+    validates :mobile_number, length: { is: 11 }
     validates :message, length: { maximum: 100 }
 
 end

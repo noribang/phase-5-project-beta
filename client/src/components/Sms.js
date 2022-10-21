@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SmsMessageList from './SmsMessageList';
 // import SmsNewMessage from './SmsNewMessage';
+import SmsContext from '../SmsContext';
 
 function Sms() {
     const [smss, setSmss] = useState([]);
@@ -37,12 +38,13 @@ function Sms() {
     
     return (
         <>
-            <SmsMessageList 
-                smss={smss}
-                onSmsDelete={handleDeleteSms}
-                onUpdateSms={handleUpdateSms}
-            />
-            
+            <SmsContext.Provider value={smss}>
+                <SmsMessageList 
+                    // smss={smss}
+                    onSmsDelete={handleDeleteSms}
+                    onUpdateSms={handleUpdateSms}
+                />
+            </SmsContext.Provider>
         </>
     );
     
