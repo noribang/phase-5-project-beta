@@ -9,6 +9,7 @@ function Sms() {
     useEffect(() => {
         // debugger
         fetch("/api/sms_messages")
+        // .then((r) => console.log(r))
         .then((r) => r.json())
         .then((sms_data) => setSmss(sms_data))  
         // .then((sms_data) => console.log(sms_data))     
