@@ -11,11 +11,8 @@ import { NavLink } from 'react-router-dom';
         textDecoration: "none",
         color: "white",
     };
-  
-    
-    
     /* Navbar */
-    function NavBar({ setUser }) {
+    function NavBar({ setUser, user }) {
         
         function handleLogout() {
             fetch("/api/logout", {method: "DELETE"})
@@ -32,7 +29,7 @@ import { NavLink } from 'react-router-dom';
                 <header>
                     <button onClick={handleLogout}>Logout</button>
                 </header>
-                <NavLink
+                {user.id ? <NavLink
                     to="/"
                     exact
                     style={linkStyles}
@@ -42,7 +39,7 @@ import { NavLink } from 'react-router-dom';
                     onClick={handleLogout}
                 >
                     Logout
-                </NavLink>
+                </NavLink> : null}
                 <NavLink
                     to="/"
                     exact
@@ -63,7 +60,7 @@ import { NavLink } from 'react-router-dom';
                 >
                     About
                 </NavLink>
-                <NavLink
+                {user.id === null ? <NavLink
                     to="/login"
                     exact
                     style={linkStyles}
@@ -72,8 +69,8 @@ import { NavLink } from 'react-router-dom';
                     }}
                 >
                     Login
-                </NavLink>
-                <NavLink
+                </NavLink> : null}
+                {user.id === null ? <NavLink
                     to="/signup"
                     exact
                     style={linkStyles}
@@ -82,8 +79,8 @@ import { NavLink } from 'react-router-dom';
                     }}
                 >
                     Signup
-                </NavLink>
-                <NavLink
+                </NavLink> : null}
+                {user.id ? <NavLink
                     to="/messages"
                     exact
                     style={linkStyles}
@@ -92,8 +89,8 @@ import { NavLink } from 'react-router-dom';
                     }}
                 >
                     Send SMS
-                </NavLink>
-                <NavLink
+                </NavLink> : null}
+                {user.id ? <NavLink
                     to="/sms"
                     exact
                     style={linkStyles}
@@ -102,8 +99,8 @@ import { NavLink } from 'react-router-dom';
                     }}
                 >
                     SMS History
-                </NavLink>
-                <NavLink
+                </NavLink> : null}
+                {user.id ? <NavLink
                     to="/profilenew"
                     exact
                     style={linkStyles}
@@ -112,8 +109,8 @@ import { NavLink } from 'react-router-dom';
                     }}
                 >
                     New Profile
-                </NavLink>
-                <NavLink
+                </NavLink> : null}
+                {user.id ? <NavLink
                     to="/profileform"
                     exact
                     style={linkStyles}
@@ -122,12 +119,9 @@ import { NavLink } from 'react-router-dom';
                     }}
                 >
                     User Profile
-                </NavLink>
-        
+                </NavLink> : null}
             </div>
         );
     }
   
-
-
 export default NavBar;
