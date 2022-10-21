@@ -6,7 +6,7 @@ import React, { useState } from 'react';
         const [username, setUsername] = useState("");
         const [password, setPassword] = useState("");
         const [passwordConfirmation, setPasswordConfirmation] = useState("");
-
+        const [errors, setErrors] = useState([]);
         // Handles onSubmit event.
         function handleSubmit(e) {
             e.preventDefault();
@@ -22,13 +22,27 @@ import React, { useState } from 'react';
                 }),
             })
             .then((r) => r.json())
-            .then(onLogin);
+            // .then(onLogin);
+            .then((data) => {
+                if(data.errors) {
+                    setErrors([...data.errors])
+                } else {
+                    onLogin(data)
+                }
+                setUsername("")
+                setPassword("")
+                setPasswordConfirmation("")
+            }).catch((err) => console.log(err))
         }
 
         // View JSX
         return(
             <>
                 <h1>Sign up</h1>
+                {errors.map(e => {
+                    setTimeout(() => setErrors([]), 3000)
+                    return <p style={{backgroundColor: "pink"}}>{e}</p>
+                })}
                 <form onSubmit={handleSubmit}>
                    <div>
                         <label htmlFor="username">Username:</label>
@@ -37,6 +51,7 @@ import React, { useState } from 'react';
                             id='username'
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
+                            required
                         />
                    </div>
                    <div>
@@ -46,6 +61,7 @@ import React, { useState } from 'react';
                             id='password'
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
+                            required
                         />
                    </div>
                    <div>
@@ -55,11 +71,11 @@ import React, { useState } from 'react';
                             id='password_confirmation'
                             value={passwordConfirmation}
                             onChange={(e) => setPasswordConfirmation(e.target.value)}
+                            required
                         />
                    </div> 
                     <button type="submit">Submit</button>
                 </form>
-            
             </>
         );
     }
