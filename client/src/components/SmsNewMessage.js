@@ -45,6 +45,7 @@ function SmsNewMessage() {
                     autoComplete="off"
                     value={numberMobile}
                     onChange={(e) => setNumberMobile(e.target.value)}
+                    required
                 />
                 <label>Sms Message:</label>
                 <textarea 
@@ -53,6 +54,7 @@ function SmsNewMessage() {
                     rows="4" 
                     cols="50"
                     onChange={(e) => setSmsMessage(e.target.value)}
+                    required
                 >
                 </textarea>
                 <input type="submit" value="Send" />

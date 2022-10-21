@@ -45,11 +45,11 @@ function App() {
       <NavBar setUser={(setUser)} user={user}/>
       <h2>Welcome, {user.username}!</h2>
       <Switch>
-        <Route path="/about"> 
-          <About />
-        </Route>
         <Route path="/login">
           <Login onLogin={(setUser)}/>
+        </Route>
+        <Route path="/about"> 
+          <About />
         </Route>
         <Route path="/signup">
           <Signup onLogin={(setUser)} />

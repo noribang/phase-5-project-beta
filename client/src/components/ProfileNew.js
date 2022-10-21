@@ -49,6 +49,7 @@ function ProfileNew() {
                         autoComplete="off"
                         value={firstName}
                         onChange={(e) => setFirstName(e.target.value)}
+                        required
                     />
                 </div>
                 <div>
@@ -59,6 +60,7 @@ function ProfileNew() {
                         autoComplete="off"
                         value={lastName}
                         onChange={(e) => setLastName(e.target.value)}
+                        required
                     />
                     
                 </div>
