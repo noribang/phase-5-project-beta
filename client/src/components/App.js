@@ -12,7 +12,7 @@ import ProfileNew from './ProfileNew';
 import ProfileForm from './ProfileForm';
 
 function App() {
-  const[user, setUser] = useState({username: "World! Please Login or Signup to create an account"});
+  const[user, setUser] = useState({id: null, username: "World! Please Login or Signup to create an account"});
 
   // On page load try to login user by sessions hash.
   // If user found setUser state is set to user found.
@@ -42,7 +42,7 @@ function App() {
 
   return (
     <>
-      <NavBar setUser={(setUser)}/>
+      <NavBar setUser={(setUser)} user={user}/>
       <h2>Welcome, {user.username}!</h2>
       <Switch>
         <Route exact path="/">
