@@ -24,12 +24,10 @@ import AppSetUserContext from "../AppSetUserContext";
                 }),
             })
             .then((r) => r.json())
-            // .then(onLogin);
             .then((data) => {
                 if(data.errors) {
                     setErrors([...data.errors])
                 } else {
-                    // onLogin(data)
                     setUser(data)
                 }
                 setUsername("")

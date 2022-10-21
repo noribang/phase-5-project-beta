@@ -2,11 +2,11 @@ import React, { useState, useContext } from 'react';
 // import NavBar from "./NavBar";
 import AppSetUserContext from "../AppSetUserContext";
 
-    // function Login({ onLogin }) {
     function Login() {
         // State
         const [username, setUsername] = useState("")
         const [password, setPassword] = useState("")
+        const [errors, setErrors] = useState([]);
         // useContext
         const { setUser } = useContext(AppSetUserContext);
 
@@ -22,19 +22,40 @@ import AppSetUserContext from "../AppSetUserContext";
             })
             .then((r) => {
                 if (r.ok) {
-                    // r.json().then((user) => onLogin(user));
                     r.json().then((user) => setUser(user));
+                } else {
+                    r.json().then((data) => {
+                        if(data.errors) {
+                            setErrors([...data.errors])
+                        } else {
+                            setUser(data)
+                        }
+                        setUsername("")
+                        setPassword("")
+                    }).catch((err) => console.log(err))
                 }
             })
-            
+            // Adding in to handle errors.
+            // .then((data) => {
+            //     if(data.errors) {
+            //         setErrors([...data.errors])
+            //     } else {
+            //         setUser(data)
+            //     }
+            //     username("")
+            //     password("")
+            // }).catch((err) => console.log(err))
         } 
 
         // View
         return (
         <>
-            {/* <NavBar /> */}
+            <h1>Login</h1>
+            {errors.map(e => {
+                    setTimeout(() => setErrors([]), 3000)
+                    return <p style={{backgroundColor: "pink"}}>{e}</p>
+            })}
             <form onSubmit={handleSubmit}>
-                <h1>Login</h1>
                 <div>
                     <label htmlFor="username">Username</label>
                     <input 
