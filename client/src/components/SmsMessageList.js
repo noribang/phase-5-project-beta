@@ -3,7 +3,6 @@ import SmsMessage from './SmsMessage';
 import { v4 as uuidv4 } from 'uuid';
 import SmsContext from '../SmsContext';
 
-// function SmsMessageList({ smss, onSmsDelete, onUpdateSms }) {
 function SmsMessageList({ onSmsDelete, onUpdateSms }) {
 
     const smss = useContext(SmsContext);

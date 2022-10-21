@@ -1,10 +1,7 @@
 import React, { useState } from 'react';
 
-// function SmsNewMessage() {
 function ProfileNew() {
     // State
-    // const [smsMessage, setSmsMessage] = useState('');
-    // const [numberMobile, setNumberMobile] = useState(''); 
     const [firstName, setFirstName] = useState('');
     const [lastName, setLastName] = useState(''); 
     const [email, setEmail] = useState('');
@@ -12,7 +9,6 @@ function ProfileNew() {
 
     // Function expression.
     // onSubmit().
-    // Sends sms when form submit is clicked.
     const sendProfile = (event) => {
         event.preventDefault();
     
@@ -23,8 +19,6 @@ function ProfileNew() {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                // mobile_number: '1' + numberMobile,
-                // message: smsMessage,
                 firstname: firstName,
                 lastname: lastName,
                 email: email,
@@ -35,11 +29,9 @@ function ProfileNew() {
         .then((data) => console.log(data))
     }
 
-
     return (
         <>
             <h1>New Profile</h1>
-            {/* <form className="new-sms" onSubmit={}> */}
             <form className="new-profile" onSubmit={sendProfile}>
                 <div>
                     <label>First Name:</label>

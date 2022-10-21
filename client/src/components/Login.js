@@ -35,16 +35,7 @@ import AppSetUserContext from "../AppSetUserContext";
                     }).catch((err) => console.log(err))
                 }
             })
-            // Adding in to handle errors.
-            // .then((data) => {
-            //     if(data.errors) {
-            //         setErrors([...data.errors])
-            //     } else {
-            //         setUser(data)
-            //     }
-            //     username("")
-            //     password("")
-            // }).catch((err) => console.log(err))
+            
         } 
 
         // View

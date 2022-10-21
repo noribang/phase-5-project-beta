@@ -11,7 +11,6 @@ class Api::ProfilesController < ApplicationController
     # PUT    /api/profiles/:id(.:format)     api/profiles#update
     # DELETE /api/profiles/:id(.:format)     api/profiles#destroy
 
-
     # GET /api/profiles
     def index 
         # Return all instances
@@ -33,18 +32,6 @@ class Api::ProfilesController < ApplicationController
         render json: profile, status: :created
     end
 
-    # # GET  /api/profiles_one/
-    # def show_one
-    #     # Return sms message instance by params[:id]
-    #     # sms = find_sms
-    #     # render json: sms
-
-    #     profile = @current_user.profile.find(2)
-    #     render json: profile
-    #     # rescue ActiveRecord::RecordNotFound    
-    #     #     render_not_found_response
-    # end
-
     # PATCH  /api/profiles/:id(.:format)     api/profiles#update
     def update
         # Find the profile by id from route params
@@ -55,8 +42,6 @@ class Api::ProfilesController < ApplicationController
         render json: profile
         # # rescue ActiveRecord::RecordNotFound    
         # #     render_not_found_response   
-
-
     end
 
     # DELETE /api/profiles/:id
@@ -85,6 +70,5 @@ class Api::ProfilesController < ApplicationController
         # profile = Profile.find(params[:id])
         profile = @current_user.profiles.find(params[:id])
     end
-
 
 end

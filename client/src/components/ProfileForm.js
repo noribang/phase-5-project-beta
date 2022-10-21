@@ -48,5 +48,4 @@ function ProfileForm() {
     
 }
 
-// export default Sms;
 export default ProfileForm;

@@ -28,19 +28,16 @@ function App() {
     return (
     <>
       <AppSetUserContext.Provider value={{ setUser, user }}>
-      {/* <NavBar setUser={(setUser)} user={user}/> */}
       <NavBar user={user}/>
       <h2>Welcome, {user.username}!</h2>
       <Switch>
         <Route path="/login">
-          {/* <Login onLogin={(setUser)}/> */}
           <Login />
         </Route>
         <Route path="/about"> 
           <About />
         </Route>
         <Route path="/signup">
-          {/* <Signup onLogin={(setUser)} /> */}
           <Signup />
         </Route>
         <Route path="/messages">

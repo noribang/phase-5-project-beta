@@ -4,11 +4,8 @@ import { v4 as uuidv4 } from 'uuid';
 // import ExampleContext from '../ExampleContext';
 import ProfileContext from '../ProfileContext';
 
-
-// function ProfileList({ profiles, onProfileDelete, onUpdateProfile }) {
 function ProfileList({ onProfileDelete, onUpdateProfile }) {
 
-    // const profiles = useContext(ExampleContext);
     const profiles = useContext(ProfileContext);
 
     return (
@@ -29,5 +26,4 @@ function ProfileList({ onProfileDelete, onUpdateProfile }) {
     );
 }
 
-// export default SmsMessageList;
 export default ProfileList;

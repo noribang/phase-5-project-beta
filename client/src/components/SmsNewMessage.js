@@ -11,12 +11,6 @@ function SmsNewMessage() {
     const sendSms = (event) => {
         event.preventDefault();
     
-        // // Pass current number and sms state for attribute values.
-        // let smsObj = {
-        //     mobile_number: '1' + number,
-        //     message: sms,
-        // }
-
         // Make request
         fetch('/api/sms_messages/', {
             method: 'POST',
@@ -36,7 +30,6 @@ function SmsNewMessage() {
     return (
         <>
             <h1>New Twilio Sms Message</h1>
-            {/* <form className="new-sms" onSubmit={}> */}
             <form className="new-sms" onSubmit={sendSms}>
                 <label>Mobile Number:</label>
                 <input  

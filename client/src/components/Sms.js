@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import SmsMessageList from './SmsMessageList';
-// import SmsNewMessage from './SmsNewMessage';
 import SmsContext from '../SmsContext';
 
 function Sms() {
@@ -34,7 +33,6 @@ function Sms() {
         });
         setSmss(updatedSmss)
     }
-    
     
     return (
         <>

@@ -1,32 +1,11 @@
 import React, { useState } from 'react';
 
-// function SmsEditMessage({ id, mobile_number, message, onUpdateSmsMessage }) {
 function ProfileEdit({ id, firstname, lastname, email, bio, user_id, onUpdateProfileMessage }) {
-    // const [isMobile, setIsMobile] = useState(mobile_number);
-    // const [isMessage, setIsMessage] = useState(message);
-
+    // State
     const [isFirstName, setIsFirstName] = useState(firstname);
     const [isLastName, setIsLastName] = useState(lastname);
     const [isEmail, setIsEmail] = useState(email);
     const [isBio, setIsBio] = useState(bio);
-
-
-    // function handleSmsFormSubmit(e) {
-    //     e.preventDefault();
-
-    //     fetch(`/api/sms_messages/${id}`, {
-    //         method: "PATCH",
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //         },
-    //         body: JSON.stringify({
-    //             mobile_number: isMobile,
-    //             message: isMessage,
-    //         })
-    //     })
-    //     .then((r) => r.json())
-    //     .then((updatedSmsJSON) => onUpdateSmsMessage(updatedSmsJSON))
-    // }
 
     function handleProfileFormSubmit(e) {
         e.preventDefault();
@@ -49,27 +28,7 @@ function ProfileEdit({ id, firstname, lastname, email, bio, user_id, onUpdatePro
 
 
     return (
-        <>
-            {/* <p>Update Mobile Number / SMS Message</p>
-            <form className="edit-sms" onSubmit={handleSmsFormSubmit}>
-                <input  
-                    type="text"
-                    name="mobile"
-                    autoComplete="off"
-                    value={isMobile}
-                    onChange={(e) => setIsMobile(e.target.value)}
-                />
-                <input  
-                    type="text"
-                    name="message"
-                    autoComplete="off"
-                    value={isMessage}
-                    onChange={(e) => setIsMessage(e.target.value)}
-                />
-                <input type="submit" value="Submit" />
-            </form> */}
-
-            
+        <>  
             <p>Update Profile</p>
             <form className="edit-profile" onSubmit={handleProfileFormSubmit}>
                 <input  
@@ -100,9 +59,6 @@ function ProfileEdit({ id, firstname, lastname, email, bio, user_id, onUpdatePro
                     value={isBio}
                     onChange={(e) => setIsBio(e.target.value)}
                 />
-
-
-
                 <input type="submit" value="Submit" />
             </form>
 
