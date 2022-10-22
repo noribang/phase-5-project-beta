@@ -1,6 +1,6 @@
-# Project 5 - Flatiron School 2022
+# Twilio App - Project 5 Flatiron School 2022
 
-Text here...
+Web application that enables the user to send SMS (text messages) to any U.S. domestic mobile phone number. 
 
 ## Setup
 
