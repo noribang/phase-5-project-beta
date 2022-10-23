@@ -1,6 +1,9 @@
 # Twilio App: Phase 5 Project for Flatiron School Software Development program 2022
 
-Web application that enables the user to send SMS (text messages) to any U.S. domestic mobile phone number. 
+Twio App is a web-based application that enables the user to send SMS (text messages) to any U.S. domestic mobile phone number. Please click here: [Twilio App](https://enigmatic-wave-74156.herokuapp.com/profileform) to be taken to the site.
+
+
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
 ## User story
 
