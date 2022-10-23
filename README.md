@@ -8,8 +8,8 @@
 - A user will be able to login after signing up for an account.
 - A user will be able to send SMS text messages from the Send SMS page.
 - A user will be able to send SMS text messages from the Send SMS page.
-- A user will be able to view, update/ resend and delete their SMS text messages that have already been sent from the SMS history page. 
-- A user will be able to create a user profile(s) of themselves from the New Profile page.
+- A user will be able to view, update/ resend and delete their SMS text messages from the SMS history page. 
+- A user will be able to create user profiles of themself from the New Profile page.
 - A user will be able to view, update and delete their user profile from the User Profile page. 
 
 
