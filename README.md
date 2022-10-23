@@ -21,6 +21,58 @@
 
 ## Setup
 
+1. Download, set Ruby version, install Rails dependencies and start Postgresql database
+
+```sh
+git clone https://github.com/noribang/phase-5-project-beta
+rvm --default use 3.0.4
+sudo service postgresql start
+```
+
+2. Install Rails dependencies. Create, migrate and seed database
+
+```sh
+bundle install
+rails db:create db:migrate db:seed
+```
+
+3. Create !application.yml
+
+```sh
+bundle exec figaro install
+```
+
+4. In !application.yml file add Twilio environment variables for authentication to the Twilio service (these can be found in your Twilio account)
+
+```sh
+ACCOUNT_SID: 'XXXXXXXXXX'
+AUTH_TOKEN: 'XXXXXXXXXX'
+TWILIO_NUMBER: '+1XXXXXXXXXX'
+```
+
+5. Start Rails server
+
+```sh
+rails s
+```
+
+6. Install React dependencies and start server
+
+```sh
+npm install --prefix client
+npm start --prefix client
+```
+
+
+
+bundle install
+rails db:create db:migrate db:seed
+npm install --prefix client
+```
+
+
+
+
 To run the app locally, install the Rails and React dependencies and set up thek
 database:
 
