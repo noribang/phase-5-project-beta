@@ -21,7 +21,7 @@
 
 ## Setup
 
-1. Download, set Ruby version, install Rails dependencies and start Postgresql database
+1. Download, set Ruby version and start Postgresql database
 
 ```sh
 git clone https://github.com/noribang/phase-5-project-beta
@@ -62,29 +62,3 @@ rails s
 npm install --prefix client
 npm start --prefix client
 ```
-
-
-
-bundle install
-rails db:create db:migrate db:seed
-npm install --prefix client
-```
-
-
-
-
-To run the app locally, install the Rails and React dependencies and set up thek
-database:
-
-```sh
-bundle install
-rails db:create db:migrate db:seed
-npm install --prefix client
-```
-
-Install Heroku CLI (if you don't already have it):
-
-```sh
-brew tap heroku/brew && brew install heroku
-```
-
