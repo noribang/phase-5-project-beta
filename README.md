@@ -7,8 +7,8 @@ Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
 ## User story
 
-A user will be able to sign up for an account.
-A user will be able to login after signing up for an account.
+- A user will be able to sign up for an account.
+- A user will be able to login after signing up for an account.
 A user will be able to send SMS text messages from the Send SMS page.
 A user will be able to send SMS text messages from the Send SMS page.
 A user will be able to view, update/ resend and delete their SMS text messages that have already been sent from the SMS history page. 
