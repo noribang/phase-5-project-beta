@@ -2,18 +2,15 @@
 
 [Twio App](https://enigmatic-wave-74156.herokuapp.com/profileform) is a web-based application that enables the user to send SMS (text messages) to any U.S. domestic mobile phone number.
 
-
-Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
-
 ## User story
 
 - A user will be able to sign up for an account.
 - A user will be able to login after signing up for an account.
-A user will be able to send SMS text messages from the Send SMS page.
-A user will be able to send SMS text messages from the Send SMS page.
-A user will be able to view, update/ resend and delete their SMS text messages that have already been sent from the SMS history page. 
-A user will be able to create a user profile(s) of themselves from the New Profile page.
-A user will be able to view, update and delete their user profile from the User Profile page. 
+- A user will be able to send SMS text messages from the Send SMS page.
+- A user will be able to send SMS text messages from the Send SMS page.
+- A user will be able to view, update/ resend and delete their SMS text messages that have already been sent from the SMS history page. 
+- A user will be able to create a user profile(s) of themselves from the New Profile page.
+- A user will be able to view, update and delete their user profile from the User Profile page. 
 
 
 
