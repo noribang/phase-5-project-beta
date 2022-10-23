@@ -13,6 +13,11 @@
 - A user will be able to view, update and delete their user profile from the User Profile page. 
 
 
+## Requirements
+- A Twilio account - [Sign up for free Twilio](https://www.twilio.com/try-twilio)
+
+- [Ruby version 3.0.4](https://rvm.io/rubies/installing) 
+
 
 ## Setup
 
